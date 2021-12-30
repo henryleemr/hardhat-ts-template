@@ -1,18 +1,18 @@
 {
-  "title": "MaxNFT #1",
-  "type": "Collectible",
-  "properties": {
-      "name": {
-          "type": "string",
-          "description": "No Name"
-      },
-      "description": {
-          "type": "string",
-          "description": "NFT made with love"
-      },
-      "image": {
-          "type": "string",
-          "description": "images/1.png"
-      }
-  }
+    "title": "MaxNFT #1",
+    "type": "Collectible",
+    "properties": {
+        "name": {
+            "type": "string",
+            "description": "No Name"
+        },
+        "description": {
+            "type": "string",
+            "description": "NFT made with love"
+        },
+        "image": {
+            "type": "string",
+            "description": "https://gateway.pinata.cloud/ipfs/QmbSPNnEECQdQHEthCQRYFoG2HcjrTQyGZLuCo3uuPpEV7"
+        }
+    }
 }

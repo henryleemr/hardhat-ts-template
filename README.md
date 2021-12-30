@@ -108,6 +108,21 @@ To verify on etherscan: (there are no initialisation parameters needed to be pas
  yarn hardhat verify --network rinkeby 0x644AB8Af24e5BBCfBD9d858a968fdcb7EF371A77
 ```
 
+
+Hosting the content image on `Pinata`
+-create a Pinata account
+-upload your image as `1.png`
+-click on view to get the link in the browser
+-remove `?preview=1` at the end of the url so your url should be `https://gateway.pinata.cloud/ipfs/<your-CID>`
+-copy and paste it into your `1.json` like so:
+
+```
+        "image": {
+            "type": "string",
+            "description": "https://gateway.pinata.cloud/ipfs/QmbSPNnEECQdQHEthCQRYFoG2HcjrTQyGZLuCo3uuPpEV7"
+        }
+```
+
 # Etherscan verification
 
 To try out Etherscan verification, you first need to deploy a contract to an Ethereum network that's supported by Etherscan, such as Ropsten.
