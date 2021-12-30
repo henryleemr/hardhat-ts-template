@@ -43,6 +43,57 @@ yarn hardhat test
 yarn hardhat test test/MAxNFT.test.ts
 ```
 
+To deploy:
+click on `view key` in https://dashboard.alchemyapi.io/apps/3u01lpm5eekblaio to get your rinkeby URL
+paste it into ROPSTEN_URL in .env
+
+go to etherscan and copy paste your API key into .env.example file again
+ETHERSCAN_API_KEY
+
+go to MM and change to testnet (the consistent one) and then get some test coins and export your private key to fill it out in .env.example
+PRIVATE_KEY
+
+In your `.env` you should have:
+```
+ETHERSCAN_API_KEY=
+RINKEBY_URL=
+PRIVATE_KEY=
+REPORT_GAS=false
+```
+
+Go to `hardhat.config.ts`
+-change all the ROPSTEN to RINKEBY like
+```
+  networks: {
+    rinkeby: {
+      url: process.env.RINKEBY_URL || "",
+      accounts:
+        process.env.PRIVATE_KEY !== undefined ? [process.env.PRIVATE_KEY] : [],
+    },
+  },
+```
+
+
+To publish and deploy
+```
+yarn hardhat run scripts/deploy.ts --network rinkeby
+```
+
+You should get
+```
+➜  hardhat-ts-template git:(nft-things) ✗ yarn hardhat run scripts/deploy.ts --network rinkeby
+yarn run v1.22.17
+$ /Users/henryleemr/Documents/workplace/personal/techtics/hardhat-ts-template/node_modules/.bin/hardhat run scripts/deploy.ts --network rinkeby
+No need to generate any newer typings.
+Greeter deployed to: 0x644AB8Af24e5BBCfBD9d858a968fdcb7EF371A77
+✨  Done in 43.28s.
+```
+
+Check it out at the RINKEBY etherscan:
+```
+https://rinkeby.etherscan.io/address/0x644AB8Af24e5BBCfBD9d858a968fdcb7EF371A77
+```
+
 # Etherscan verification
 
 To try out Etherscan verification, you first need to deploy a contract to an Ethereum network that's supported by Etherscan, such as Ropsten.
