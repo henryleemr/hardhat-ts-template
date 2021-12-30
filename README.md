@@ -29,7 +29,16 @@ npx solhint 'contracts/**/*.sol' --fix
 ```
 yarn 
 yarn hardhat test
+```
 
+NOTE: You can just do `yarn add` but it might not resolve and give you the best package versions, it is better to change `package.json` to get the package version you want and then do `yarn`, for example add this into `package.json`:
+```
+    "@nomiclabs/hardhat-ethers": "^2.0.3",
+
+```
+
+
+```
 yarn add @openzeppelin/contracts
 yarn add dotenv
 
