@@ -31,6 +31,15 @@ brew update
 brew install node
 npm install -global yarn
 yarn
+yarn install
+
+yarn add dotenv
+yarn add @openzeppelin/contracts
+```
+
+To run the test
+```
+yarn hardhat test test/BasicICO.test.ts
 ```
 
 # Etherscan verification
