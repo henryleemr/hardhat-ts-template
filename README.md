@@ -40,6 +40,7 @@ To test
 ```
 yarn hardhat compile
 yarn hardhat test
+yarn hardhat test test/MAxNFT.test.ts
 ```
 
 # Etherscan verification
