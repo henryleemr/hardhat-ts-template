@@ -94,18 +94,18 @@ You should get
 yarn run v1.22.17
 $ /Users/henryleemr/Documents/workplace/personal/techtics/hardhat-ts-template/node_modules/.bin/hardhat run scripts/deploy.ts --network rinkeby
 No need to generate any newer typings.
-Greeter deployed to: 0x644AB8Af24e5BBCfBD9d858a968fdcb7EF371A77
+Greeter deployed to: 0xcc5d0BC51CC04FfbFf6d1f31dC193319e4F258Ae
 ✨  Done in 43.28s.
 ```
 
 Check it out at the RINKEBY etherscan:
 ```
-https://rinkeby.etherscan.io/address/0x644AB8Af24e5BBCfBD9d858a968fdcb7EF371A77
+https://rinkeby.etherscan.io/address/0xcc5d0BC51CC04FfbFf6d1f31dC193319e4F258Ae
 ```
 
 To verify on etherscan: (there are no initialisation parameters needed to be passed into the constructor so no need for flags)
 ```
- yarn hardhat verify --network rinkeby 0x644AB8Af24e5BBCfBD9d858a968fdcb7EF371A77
+ yarn hardhat verify --network rinkeby 0xcc5d0BC51CC04FfbFf6d1f31dC193319e4F258Ae
 ```
 
 
@@ -121,6 +121,25 @@ Hosting the content image on `Pinata`
             "type": "string",
             "description": "https://gateway.pinata.cloud/ipfs/QmbSPNnEECQdQHEthCQRYFoG2HcjrTQyGZLuCo3uuPpEV7"
         }
+```
+
+-then rename your `1.json` into `1` and then upload the folder `metadata` into `Pinata`
+```
+https://gateway.pinata.cloud/ipfs/QmZqZUpjNWKjCdWcVFHPyLdRm4xmnHQi2RP4hdqGX7oShW
+```
+
+Then go to Etherscan and connect to Web3 MM, then `write contract` the `BaseURI` field of the contract (remember to add a `/` !)
+```
+https://gateway.pinata.cloud/ipfs/QmYqyKR2kXwJfTAdrAVGSXqiSn1vkbfzjSR7yjBSSX9Yrn/
+```
+
+Now go to `write contract` and the `mint` function, input a `tokenID` (you can go to `ReadContract` and `ownerOf` to check if the tokenID is already taken or not)
+-input a tokenID number = 1 and then click `mint`
+
+Now go to `Read Contract` and enter `1` in TokenURI to get the bassURI appended for eg
+```
+https://gateway.pinata.cloud/ipfs/QmYqyKR2kXwJfTAdrAVGSXqiSn1vkbfzjSR7yjBSSX9Yrn/1
+
 ```
 
 # Etherscan verification
