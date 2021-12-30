@@ -142,6 +142,18 @@ https://gateway.pinata.cloud/ipfs/QmYqyKR2kXwJfTAdrAVGSXqiSn1vkbfzjSR7yjBSSX9Yrn
 
 ```
 
+## To build a frontend
+Use `ether.js` to allow connection to MM
+
+`ABI` is basically an API for the smart contract, so get your `ABI` from etherscan `https://rinkeby.etherscan.io/address/0xcc5d0BC51CC04FfbFf6d1f31dC193319e4F258Ae#code`, it should be something like this, an interface:
+```  
+[{"inputs":[],"stateMutability":"nonpayable","type":"constructor"},{"anonymous":false,"inputs":[{"indexed":true,"internalType":"address","name":"owner","type":"address"},{"indexed":true,"internalType":"address","name":"approved","type":"address"},....}]
+```
+
+TODO:
+- in `frontend/index.html` the call to the smart contract function `tokenURI` is a promise, whcih means that it is empty upon loading, need to for example add a button that triggers a jQuery to load it first before being able ot use it. 
+
+
 # Etherscan verification
 
 To try out Etherscan verification, you first need to deploy a contract to an Ethereum network that's supported by Etherscan, such as Ropsten.
