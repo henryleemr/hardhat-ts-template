@@ -25,6 +25,23 @@ npx solhint 'contracts/**/*.sol'
 npx solhint 'contracts/**/*.sol' --fix
 ```
 
+# Installation
+```
+yarn 
+yarn hardhat test
+
+yarn add @openzeppelin/contracts
+yarn add dotenv
+
+yarn add @nomiclabs/hardhat-ethers
+```
+
+To test
+```
+yarn hardhat compile
+yarn hardhat test
+```
+
 # Etherscan verification
 
 To try out Etherscan verification, you first need to deploy a contract to an Ethereum network that's supported by Etherscan, such as Ropsten.
