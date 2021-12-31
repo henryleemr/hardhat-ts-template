@@ -4,6 +4,7 @@ import { parseEther } from "ethers/lib/utils";
 import { ethers } from "hardhat";
 import { connect } from "http2";
 import { MaxNFT, MaxNFT__factory } from "../typechain";
+import { NFT } from "../typechain/NFT";
 
 describe("MaxNFT", async () => {
   let owner: SignerWithAddress;
@@ -26,7 +27,9 @@ describe("MaxNFT", async () => {
   });
 
   it("Should be able to mint", async () => {
-    await nft.connect(alice).mint(5);
+    await nft.connect(alice).mint(5, {
+      value: parseEther("0.01")
+    });
 
     expect(await nft.ownerOf(5)).to.eq(alice.address);
 
@@ -35,10 +38,32 @@ describe("MaxNFT", async () => {
     );
   });
 
-  it("Should be able to set the correct baseURI", async () => {
-    await nft.setBaseURI("../contracts/images/");
-    await nft.mint(1);
+  //   // Same tokenId
+  //   await expect(nft.connect(bob).mint(5, {
+  //     value: parseEther("0.001")
+  //   })
+  //   ).to.be.revertedWith("ERC721: token already minted");
+  // });
 
-    expect(await nft.tokenURI(1)).to.eq("../contracts/images/1.png");
-  });
+
+  // it("Should only allow whitelist mints for phase 1",
+  //   async () => {
+  //     await nft.addWhitelist(alice.address);
+
+  //     // // should not be minted (value > 0)
+  //     // await expect(nft.connect(bob).mint(5, {
+  //     //   value: parseEther("0.001")
+  //     // })
+  //     // )
+
+  //     await nft.connect(alice).mint(5);
+
+  //   })
+
+  // it("Should be able to set the correct baseURI", async () => {
+  //   await nft.setBaseURI("../contracts/images/");
+  //   await nft.mint(1);
+
+  //   expect(await nft.tokenURI(1)).to.eq("../contracts/images/1.png");
+  // });
 });
